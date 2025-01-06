@@ -10,16 +10,23 @@ class MetricDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context,constraints) {
-        if(constraints.maxWidth > 600){
-          return WebListView(data: data);
+    return LayoutBuilder(builder: (context, constraints) {
+      print(constraints.maxWidth);
+      if (constraints.maxWidth > 600) {
+        if (constraints.maxWidth < 860) {
+          return WebListView(
+            data: data,
+            crossAxisCount: 2,
+          );
         }
-        return MobileListView(
+        return WebListView(
           data: data,
+          crossAxisCount: 3,
         );
       }
-    );
+      return MobileListView(
+        data: data,
+      );
+    });
   }
-
 }
