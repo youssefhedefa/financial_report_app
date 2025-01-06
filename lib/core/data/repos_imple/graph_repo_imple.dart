@@ -51,3 +51,4 @@ class GraphRepoImple implements GraphRepo {
     return chartData;
   }
 }
+
