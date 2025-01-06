@@ -1,5 +1,6 @@
 import 'package:financial_report_app/features/metrics/domain/entity/metric_entity.dart';
-import 'package:financial_report_app/features/metrics/presentation/ui/widgets/metric_item.dart';
+import 'package:financial_report_app/features/metrics/presentation/ui/widgets/mobile_list_view.dart';
+import 'package:financial_report_app/features/metrics/presentation/ui/widgets/web_list_view.dart';
 import 'package:flutter/material.dart';
 
 class MetricDataList extends StatelessWidget {
@@ -9,25 +10,16 @@ class MetricDataList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: const EdgeInsets.all(16),
-      itemBuilder: (context, index) {
-        return MetricItem(
-          title: data[index].name,
-          value: adjustValue(data[index].value.toString()),
+    return LayoutBuilder(
+      builder: (context,constraints) {
+        if(constraints.maxWidth > 600){
+          return WebListView(data: data);
+        }
+        return MobileListView(
+          data: data,
         );
-      },
-      separatorBuilder: (context, index) => const SizedBox(
-        height: 16,
-      ),
-      itemCount: data.length,
+      }
     );
   }
-  adjustValue(String value) {
-    double val = double.parse(value);
-    if (val.toStringAsFixed(2).split(".")[1] == "00") {
-      return val.toStringAsFixed(0);
-    }
-    return val.toStringAsFixed(2);
-  }
+
 }
