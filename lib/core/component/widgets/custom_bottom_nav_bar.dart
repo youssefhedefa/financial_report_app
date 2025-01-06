@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 
 class CustomBottomNavBar extends StatelessWidget {
-  const CustomBottomNavBar({super.key});
+  const CustomBottomNavBar({super.key, required this.onTap, required this.currentIndex});
+
+  final Function(int) onTap;
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +36,10 @@ class CustomBottomNavBar extends StatelessWidget {
               label: 'Chart',
             ),
           ],
-          currentIndex: 0,
+          currentIndex: currentIndex,
           selectedItemColor: AppColorHelper.yellowColor,
           unselectedItemColor: Colors.grey,
-          onTap: (index){
-          },
+          onTap: onTap,
         ),
       ),
     );
