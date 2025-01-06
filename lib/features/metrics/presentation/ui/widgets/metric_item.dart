@@ -23,19 +23,19 @@ class MetricItem extends StatelessWidget {
           ),
         ],
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Total Orders',
+            title,
             style: AppTextStyle.font32BlackSemiBold,
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
           Text(
-            '1000',
-            style: AppTextStyle.font26BlackRegular,
+            value,
+            style: AppTextStyle.font28BlackRegular,
           ),
         ],
       ),
