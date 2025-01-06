@@ -7,8 +7,8 @@ class AppTextStyle{
     fontWeight: FontWeight.w600,
   );
 
-  static const TextStyle font26BlackRegular = TextStyle(
-    fontSize: 26,
+  static const TextStyle font28BlackRegular = TextStyle(
+    fontSize: 28,
     color: Colors.black,
     fontWeight: FontWeight.w400,
   );

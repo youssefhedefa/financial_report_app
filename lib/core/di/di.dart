@@ -11,7 +11,7 @@ void setupDi() {
   getIt.registerLazySingleton<MetricRepo>(() => MetricRepoImple(
     ordersDataSource: getIt<OrdersDataSource>(),
   ));
-  getIt.registerFactory(() => GetMetricDataCubit(
+  getIt.registerFactory<GetMetricDataCubit>(() => GetMetricDataCubit(
     getIt<MetricRepo>(),
   ));
 
