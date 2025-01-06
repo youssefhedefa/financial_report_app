@@ -1,5 +1,6 @@
 import 'package:financial_report_app/features/graph/domain/entity/chart_entity.dart';
 
 abstract class GraphRepo {
-  Future<List<ChartEntity>> fetchChartData();
+  Future<List<ChartEntity>> fetchDayChartData();
+  Future<List<ChartEntity>> fetchMonthChartData();
 }

@@ -12,4 +12,10 @@ class AppTextStyle{
     color: Colors.black,
     fontWeight: FontWeight.w400,
   );
+
+  static const TextStyle font20BlackRegular = TextStyle(
+    fontSize: 20,
+    color: Colors.black,
+    fontWeight: FontWeight.w400,
+  );
 }

@@ -1,5 +1,7 @@
 import 'package:financial_report_app/core/component/widgets/custom_bottom_nav_bar.dart';
 import 'package:financial_report_app/core/di/di.dart';
+import 'package:financial_report_app/features/graph/presentation/manager/graph_cubit/graph_cubit.dart';
+import 'package:financial_report_app/features/graph/presentation/ui/graph_view.dart';
 import 'package:financial_report_app/features/metrics/presentation/manager/get_matric_data_cubit/get_matric_data_cubit.dart';
 import 'package:financial_report_app/features/metrics/presentation/ui/metrics_view.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +21,10 @@ class _ManagerAppViewState extends State<ManagerAppView> {
       create: (context) => getIt<GetMetricDataCubit>()..getMetricData(),
         child: const MetricsView(),
     ),
-    const Center(child: Text('Chart View')),
+    BlocProvider(
+      create: (context) => getIt<GraphCubit>()..fetchChartDataForDay(),
+        child: const GraphView(),
+    ),
   ];
 
   changeIndex(int index) {
