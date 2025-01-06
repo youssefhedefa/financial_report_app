@@ -13,8 +13,7 @@ class GraphView extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          // create tab bar
-          CustomTabBar(),
+          const CustomTabBar(),
           BlocBuilder<GraphCubit, GraphState>(
             builder: (context, state) {
               if (state.state == GraphStatesEnum.loading) {
